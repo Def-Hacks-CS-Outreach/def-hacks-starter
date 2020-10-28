@@ -1,6 +1,9 @@
 import React from 'react';
 import '../styles/exist.css';
 import { Link } from 'react-router-dom';
+import firebase from '../components/firebase/base';
+
+
 
 function ExistAccount() {
   return (
@@ -47,7 +50,11 @@ function ExistAccount() {
       <div className="content-box-2"></div>
       <div className="box-title-acc">Account Information</div>
       <div className="box-content-acc-text">
-        Username: $Username
+        Username: {firebase.getCurrentUsername() ? (
+        <h4>{console.log(firebase.getCurrentUsername())}</h4>
+        ) : (
+          <h4>Not Logged in</h4>
+        )}
         <br />
         <br />
         Email: defhacks@xyz.com

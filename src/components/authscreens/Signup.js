@@ -7,16 +7,21 @@ import './Signup.css';
 const SignUp = ({ history }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [country, setCountry] = useState('');
   const [error, setError] = useState('');
 
   const onRegister = async (event, email, password) => {
     event.preventDefault();
 
+    let name = `${firstName} ${lastName}`
+
     await firebase
       .register(name, email, password)
       .then(() => {
-        alert('Signup Successful');
+        alert('Registration was Successful');
         history.replace('/newuser');
       })
       .catch((err) => {
@@ -26,7 +31,10 @@ const SignUp = ({ history }) => {
 
     setEmail('');
     setPassword('');
-    setName('');
+    setFirstName('');
+    setLastName('');
+    setConfirmPassword('');
+    setCountry('');
   };
 
   const onChangeHandler = (event) => {
@@ -35,8 +43,14 @@ const SignUp = ({ history }) => {
       setEmail(value);
     } else if (name === 'userPassword') {
       setPassword(value);
-    } else if (name === 'displayName') {
-      setName(value);
+    } else if (name === 'firstName') {
+      setFirstName(value);
+    } else if (name === 'lastName') {
+      setLastName(value);
+    } else if (name === 'confirmPassword') {
+      setConfirmPassword(value);
+    } else if (name === 'country') {
+      setCountry(value);
     }
   };
   return (
@@ -60,7 +74,7 @@ const SignUp = ({ history }) => {
             type="text"
             className="mt-1 mb-3 p-1 w-full"
             name="firstName"
-            value={name}
+            value={firstName}
             placeholder="John"
             id="firstName"
             onChange={(event) => onChangeHandler(event)}
@@ -73,7 +87,7 @@ const SignUp = ({ history }) => {
             type="text"
             className="mt-1 mb-3 p-1 w-full"
             name="lastName"
-            value={name}
+            value={lastName}
             placeholder="Doe"
             id="lastName"
             onChange={(event) => onChangeHandler(event)}
@@ -112,7 +126,7 @@ const SignUp = ({ history }) => {
             type="password"
             className="mt-1 mb-3 p-1 w-full"
             name="confirmPassword"
-            value={password}
+            value={confirmPassword}
             placeholder="123456"
             id="confirmPassword"
             onChange={(event) => onChangeHandler(event)}
@@ -125,7 +139,7 @@ const SignUp = ({ history }) => {
             type="text"
             className="mt-1 mb-3 p-1 w-full"
             name="country"
-            value={password}
+            value={country}
             placeholder="USA"
             id="country"
             onChange={(event) => onChangeHandler(event)}
