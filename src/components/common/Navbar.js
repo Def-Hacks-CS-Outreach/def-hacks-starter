@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import SearchIcon from '@material-ui/icons/Search';
 import '../../styles/navbar.css';
@@ -66,18 +67,24 @@ function Navigation() {
   return (
     <>
       <Navbar bg="white" className="sticky-top" id="app_navbar">
-        <Navbar.Brand href="/">
-          <img
-            alt="logo"
-            src="/assets/logo.png"
-            width="30"
-            height="30"
-            className="d-inline-block align-top"
-          />{' '}
-        </Navbar.Brand>
+        <Link to="/">
+          <Navbar.Brand>
+            <img
+              alt="logo"
+              src="/assets/logo.png"
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+            />{' '}
+          </Navbar.Brand>
+        </Link>
         <Nav className="mr-auto">
-          <Nav.Link href="/dashboard">Home</Nav.Link>
-          <Nav.Link href="/explore">Explore</Nav.Link>
+          <Link to="/dashboard" className="nav-link">
+            Home
+          </Link>
+          <Link to="/explore" className="nav-link">
+            Explore
+          </Link>
         </Nav>
 
         <Autosuggest
@@ -93,13 +100,23 @@ function Navigation() {
         <SearchIcon className="search" style={{ fontSize: 32 }} />
 
         <Nav className="ml-auto">
-          <Nav.Link href="/About">About</Nav.Link>
+          <Link to="/About" className="nav-link">
+            About
+          </Link>
           <NavDropdown title="Account" id="basic-nav-dropdown">
-            <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
+            <Link to="/profile" className="dropdown-item">
+              Profile
+            </Link>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="/signin">Login</NavDropdown.Item>
-            <NavDropdown.Item href="/signup">Register</NavDropdown.Item>
-            <NavDropdown.Item href="/signout">Logout</NavDropdown.Item>
+            <Link to="/signin" className="dropdown-item">
+              Login
+            </Link>
+            <Link to="/signup" className="dropdown-item">
+              Register
+            </Link>
+            <Link to="/signout" className="dropdown-item">
+              Logout
+            </Link>
           </NavDropdown>
         </Nav>
       </Navbar>
