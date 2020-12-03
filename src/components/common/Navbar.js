@@ -79,8 +79,9 @@ function Navigation() {
           />{' '}
         </Navbar.Brand>
         <Nav className="mr-auto">
-          <Link to="/dashboard"> Home &nbsp; </Link>
-          <Link to="/explore">&nbsp; Explore &nbsp; </Link>
+          <Nav.Link as={Link} to="/explore">
+            Explore
+          </Nav.Link>
           {user ? (
             <Nav.Link as={Link} to="/dashboard">
               Home
@@ -105,7 +106,9 @@ function Navigation() {
         <SearchIcon className="search" style={{ fontSize: 32 }} />
 
         <Nav className="ml-auto">
-          <Link to="/About"> About &nbsp;</Link>
+          <Nav.Link as={Link} to="/About">
+            About
+          </Nav.Link>
 
           <NavDropdown title="Account" id="basic-nav-dropdown">
             {user ? (
