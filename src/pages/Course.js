@@ -9,6 +9,8 @@ import VideoPlayer from './Course-Components/videoPlayer';
 import CodePlayground from './Course-Components/codePlayground';
 import QuizPanel from './Course-Components/quizPanel';
 
+import firebase from '../components/firebase/base';
+
 const videoObj = {
   videoName: 'Introduction to HTML - Lesson 1',
   instructor: 'John Doe',
@@ -20,6 +22,14 @@ function Course() {
 
   useEffect(() => {
     setNavbarHeight(document.getElementById('app_navbar').style.height);
+    console.log('Course');
+    firebase
+      .dbReturn()
+      .collection('Courses')
+      .get()
+      .then((snapshot) => {
+        console.log('Test');
+      });
   }, []);
 
   return (

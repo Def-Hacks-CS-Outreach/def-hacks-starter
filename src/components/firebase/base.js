@@ -15,7 +15,7 @@ class Firebase {
     return this.auth;
   }
 
-  dbreturns() {
+  dbReturn() {
     return this.db;
   }
 
