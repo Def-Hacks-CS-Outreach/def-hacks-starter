@@ -19,7 +19,7 @@ function Home() {
                 draggable="false"
               />
             </div>
-            <div className="col-12 col-md-6">
+            <div className="col-12 col-md-6 ">
               <h1 className="title"> Def Hacks Learn</h1>
               <br />
               <p className="greetingPart">
@@ -52,6 +52,7 @@ function Home() {
             {' '}
             <h2 className="hq-txt">Why Computer Science?</h2>{' '}
           </div>
+
           <div className="d-flex justify-content-end m-5 homeAnswer">
             <p className="">
               Technology is seeping into just about every line of work. It’s

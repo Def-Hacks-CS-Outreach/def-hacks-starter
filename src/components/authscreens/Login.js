@@ -6,6 +6,7 @@ import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import firebase from '../firebase/base';
+// import { AuthContext } from '../firebase/context';
 import Footer from '../common/Footer';
 
 import Swal from 'sweetalert2';
@@ -14,6 +15,8 @@ const SignIn = ({ history }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
+
+  // const { user } = useContext(AuthContext);
 
   // These hooks from material-ui is used for checking the current width of the window
   // In particularly, check whether the window is over sm scale
@@ -111,6 +114,8 @@ const SignIn = ({ history }) => {
             style={{
               width: matches ? '50%' : null,
               marginLeft: matches ? '25%' : null,
+              backgroundColor: '#99C87A',
+              border: 'none',
             }}
             block
           >
@@ -146,7 +151,15 @@ const SignIn = ({ history }) => {
         <div className="text-center mt-3">
           <p>
             Don't have an account ? {'  '}
-            <Link to="/signup">Sign up here</Link>
+            <Link
+              style={{
+                color: '#99C87A',
+                textDecoration: 'none',
+              }}
+              to="/signup"
+            >
+              Sign up here
+            </Link>
           </p>
           <button
             className="btn"
@@ -181,11 +194,9 @@ const SignIn = ({ history }) => {
                         Swal.fire({
                           icon: 'error',
                           title: 'Oops...',
-                          text: "This email address hasn't been registered!",
+                          text: 'Invalid Email Address!',
                         });
                       });
-                    // If email is found in account database: Invoke reset action
-                    // Else: Fire error alert
                   } else {
                     Swal.fire({
                       icon: 'error',
@@ -197,7 +208,7 @@ const SignIn = ({ history }) => {
               });
             }}
           >
-            <p style={{ color: '#38BC9C' }}>Forgot Password?</p>
+            <p style={{ color: '#99C87A' }}>Forgot Password?</p>
           </button>
         </div>
       </Container>
