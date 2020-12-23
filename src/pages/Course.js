@@ -19,10 +19,10 @@ const videoObj = {
 
 function Course() {
   const [navbarHeight, setNavbarHeight] = useState('75px');
+  const [course, setCourse] = useState();
 
   useEffect(() => {
     setNavbarHeight(document.getElementById('app_navbar').style.height);
-    console.log('Course');
     firebase
       .dbReturn()
       .collection('Courses')
