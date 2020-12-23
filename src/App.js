@@ -29,30 +29,22 @@ function App() {
     <div className="App">
       <Navbar />
       <Switch>
-        {context.user ? (
-          <>
-            <Route path="/" exact component={Home} />
-            <Route path="/dashboard" component={Dashboard} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/newuser" component={NewUser} />
-            <Route exact path="/newusercourses" component={NewUserCourses} />
-            <Route exact path="/newuserfinal" component={NewUserFinal} />
-            <Route exact path="/ExistUser" component={ExistUser} />
-            <Route exact path="/account" component={ExistAccount} />
-            <Route exact path="/ExistActivity" component={ExistActivity} />
-          </>
-        ) : (
-          <>
-            <Route path="/" exact component={Home} />
-            <Route exact path="/signin" component={LogIn} />
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/about" component={About} />
-          </>
-        )}
-
-        <Route path="/course" component={Course} />
-
-        <Route component={NotFound} />
+        <>
+          <Route path="/" exact component={Home} />
+          <Route path="/dashboard" component={Dashboard} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/newuser" component={NewUser} />
+          <Route exact path="/newusercourses" component={NewUserCourses} />
+          <Route exact path="/newuserfinal" component={NewUserFinal} />
+          <Route exact path="/ExistUser" component={ExistUser} />
+          <Route exact path="/account" component={ExistAccount} />
+          <Route exact path="/ExistActivity" component={ExistActivity} />
+          <Route exact path="/signin" component={LogIn} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/about" component={About} />
+          <Route path="/course" component={Course} />
+          <Route component={NotFound} />
+        </>
       </Switch>
     </div>
   );
