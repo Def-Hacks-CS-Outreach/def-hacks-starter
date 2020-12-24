@@ -6,7 +6,12 @@ import Sidebar from '../components/common/Sidebar';
 import '../styles/exist.css';
 import AppContext from '../context/AppContext';
 
-import firebase from '../components/firebase/base';
+
+// import { db } from '../firebase.js';
+import firebase from 'firebase/app';
+
+const db = firebase.firestore();
+
 
 function ExistUser() {
   const { user } = useContext(AppContext);
@@ -17,8 +22,10 @@ function ExistUser() {
   const [lessonList, setLessonList] = useState([]);
 
   function getDocument() {
-    const coursesRef = firebase.dbReturn().collection('Courses');
-    var tempDoc = [];
+
+    const coursesRef = db.collection('Courses');
+
+
     coursesRef.get().then((querySnapshot) => {
       querySnapshot.forEach((docName) => {
         setCourseList((oldCl) => [...oldCl, { name: docName.id }]);
@@ -36,12 +43,6 @@ function ExistUser() {
     });
   }
 
-  function getLessonDocuments(collection) {
-    courseList.forEach((course) => {
-      console.log(course);
-    });
-  }
-
   useEffect(() => {
     if (!user) {
       history.push('/signin');
@@ -50,7 +51,6 @@ function ExistUser() {
 
   useEffect(() => {
     getDocument();
-    console.log(courseList);
   }, []);
 
   const coursesListComponent = courseList.map((c) => {

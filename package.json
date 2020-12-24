@@ -9,7 +9,7 @@
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
-    "@fortawesome/react-fontawesome": "^0.1.13",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "@fullcalendar/bootstrap": "^5.5.0",
     "@fullcalendar/core": "^5.5.0",
     "@fullcalendar/daygrid": "^5.5.0",
@@ -34,6 +34,7 @@
     "react-scripts": "^4.0.1",
     "react-toastify": "^6.2.0",
     "sweetalert2": "^10.12.5"
+
   },
   "devDependencies": {
     "css-loader": "^5.0.1",
